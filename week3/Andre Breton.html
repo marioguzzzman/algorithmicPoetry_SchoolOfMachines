@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!-- 
+As a founding member of the surrealist movement, André Breton believed dreams were more interesting than reality and should form the basis of our creative endeavors. Nouns are chosen accordingly. Although it’s easy to poke fun at Breton’s eccentric metaphors, his work has aged well and is invariably heartfelt and beautiful—the dictation of the unconscious, tenderly transcribed. Here’s an excerpt from his gorgeous poem “Facteur Cheval,” translated by David Gascoyne.
+
+You remembered then you got up you got out of the train 
+Without glancing at the locomotive attacked by immense barometric roots 
+Complaining about its murdered boilers in the virgin forest 
+Its funnels smoking jacinths and moulting blue snakes 
+Then we went on, plants subject to metamorphosis 
+Each night making signs that man may understand 
+While his house collapses and he stands amazed before the singular packing-cases 
+Sought after by his bed with the corridor and the staircase
+
+Breton has most likely named his Fibonacci exercise after an old flame. He visualizes iteration as a remote staircase plied by a ghostly fleet of ancient vessels. The staircase is of indeterminate length, but an umbrella appears to mark the point beyond which further ascent is impossible. As our protagonist climbs each step, the galleons and brigantines shuffle to the haunting melody of a lone bassoon. Breton’s solution is underpinned by characteristically elegant logic —he’s using a comma operator as an ethereal device with which to simultaneously assign brigantines to galleons and bassoons to brigantines. Hats off, André!
+
+Croll, Angus. If Hemingway Wrote JavaScript (Page 29). No Starch Press. Kindle Edition.  -->
+
+    <style type="text/css">
+        /* <![CDATA[ */
+        
+        body {
+            background: #000;
+            color: #ccc;
+            margin: 0 0 0 18pt;
+            font-family: Optima, sans-serif;
+            font-size: 16pt;
+        }
+        
+        a {
+            color: #117;
+            text-decoration: none;
+        }
+        
+        #main {
+            padding-top: 18px;
+            width: 70%;
+            margin-left: 15%;
+        }
+        
+        #main div {
+            font-weight: bold;
+            padding-bottom: 9px;
+        }
+        /* ]]> */
+    </style>
+    <script type="text/javascript">
+        function Colette(umbrella) {
+            var staircase = 0,
+                galleons = 0,
+                brigantines = 1;
+            var armada = [galleons, brigantines],
+                bassoon;
+            Array.prototype.embrace = [].push;
+
+            while (2 + staircase++ < umbrella) {
+                bassoon = galleons + brigantines;
+                armada.embrace(brigantines = (galleons = brigantines, bassoon));
+            }
+            return armada;
+        }
+
+        function show_text() {
+            var
+                umbrella = 3;
+            setInterval(console.log(Colette(umbrella)), 5000);
+            document.getElementById("main").innerHTML = Colette(umbrella);
+        }
+    </script>
+    <title>Andre Breton</title>
+</head>
+
+<body onload="show_text();">
+    <div id="main"></div>
+</body>
+
+
+</html>

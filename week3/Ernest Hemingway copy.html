@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!-- stories to convey feeling—quite the opposite: his intent is to create a vacuum so that it might be filled by the reader’s own experience. After all, emotion is more easily felt than described with words: 
+
+I have tried to eliminate everything unnecessary to conveying experience to the reader so that after he or she has read something it will become a part of his or her experience and seem actually to have happened. 
+
+Hemingway’s prose is never showy, and his syntax is almost obsessively conventional. The short, unchallenging sentences and absence of difficult words add a childlike quality to his cadence. He assumes the role of naive observer, all the better to draw his readers into the emotional chaos beneath.
+
+
+The Hemingway paradox is, to some extent, the JavaScript paradox. Just as Hemingway uses only the sparest prose to allow the intricacies of the human condition to surface, JavaScript’s terse and direct syntax, when used well, can crystallize complex logic into something tangible and immediate. Hemingway’s Fibonacci solution is code reduced to its essentials, with no word or variable wasted. It’s not fancy—maybe it’s even a little pedantic—but that’s the beauty of Hemingway’s writing. There’s no need for elaborate logic or showy variable names. Hemingway’s JavaScript is plain and clear, and it does only what is necessary—and then it gets out of the way to allow the full glory of the Fibonacci sequence to shine through. Hemingway didn’t suffer fools gladly, so if you ask for a series with fewer than two numbers, he’ll just ignore you or complain, “I’m tired and this question is idiotic.”
+
+Croll, Angus. If Hemingway Wrote JavaScript (Page 18). No Starch Press. Kindle Edition. -->
+    <style type="text/css">
+        /* <![CDATA[ */
+        
+        body {
+            background: #000;
+            color: #ccc;
+            margin: 0 0 0 18pt;
+            font-family: Optima, sans-serif;
+            font-size: 16pt;
+        }
+        
+        a {
+            color: #117;
+            text-decoration: none;
+        }
+        
+        #main {
+            padding-top: 18px;
+            width: 70%;
+            margin-left: 15%;
+        }
+        
+        #main div {
+            font-weight: bold;
+            padding-bottom: 9px;
+        }
+        /* ]]> */
+    </style>
+    <script type="text/javascript">
+        function fibonacci(size) {
+            var t = 0,
+                first = 0,
+                second = 1,
+                next, count = 2,
+                result = [first, second];
+
+            if (size < 2) return "the request was made but it was not good"
+            while (count++ < size) {
+                next = first + second;
+                first = second;
+                second = next;
+                result.push(next);
+            }
+            return result;
+        }
+
+        function show_text() {
+            var size = 1;
+            fibonacci(size);
+            setInterval(console.log(fibonacci(size)), 5000);
+            document.getElementById("main").innerHTML = fibonacci(size);
+        }
+    </script>
+    <title>Ernest Hemingway</title>
+</head>
+
+<body onload="show_text();">
+    <div id="main"></div>
+</body>
+
+
+</html>

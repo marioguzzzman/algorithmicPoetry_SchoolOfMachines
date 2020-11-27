@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!--
+Love Letters reimplementation
+copyright (c) 2014 Nick Montfort <nickm@nickm.com>
+based on a 1952 program by Christopher Strachey
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Updated 10 March 2015 to correct the word lists. Sources are photographs
+of Christoper Stachey's notes in the Bodleian Library from J.R. Carpenter
+and table 14.1 in Noah Wardrip-Fruin's article "Digital Media Archaeology."
+
+Updated 28 August 2019 to add a link to "The Ferranti Mark 1 Gallery."
+Updated Nov 2020 for the "Algorithmic poetry" class, School of Machines and Make Believe
+
+-->
+    <style type="text/css">
+        /* <![CDATA[ */
+        
+        body {
+            background: #000;
+            color: #ccc;
+            margin: 0 0 0 18pt;
+            font-family: Optima, sans-serif;
+            font-size: 16pt;
+        }
+        
+        a {
+            color: #117;
+            text-decoration: none;
+        }
+        
+        #main {
+            padding-top: 18px;
+            width: 70%;
+            margin-left: 15%;
+        }
+        
+        #main div {
+            font-weight: bold;
+            padding-bottom: 9px;
+        }
+        /* ]]> */
+    </style>
+    <script type="text/javascript">
+        var t = 0,
+            first = ['DARLING', 'DEAR', 'HONEY', 'JEWEL'],
+            second = ['DUCK', 'LOVE', 'MOPPET', 'SWEETHEART'],
+            adjectives = ['ADORABLE', 'AFFECTIONATE', 'AMOROUS', 'ANXIOUS', 'ARDENT', 'AVID', 'BREATHLESS', 'BURNING', 'COVETOUS', 'CRAVING', 'CURIOUS', 'DARLING', 'DEAR', 'DEVOTED', 'EAGER', 'EROTIC', 'FERVENT', 'FOND', 'IMPATIENT', 'KEEN', 'LITTLE', 'LOVEABLE', 'LOVESICK', 'LOVING', 'PASSIONATE', 'PRECIOUS', 'SWEET', 'SYMPATHETIC', 'TENDER', 'UNSATISFIED', 'WISTFUL'],
+            nouns = ['ADORATION', 'AFFECTION', 'AMBITION', 'APPETITE', 'ARDOUR', 'CHARM', 'DESIRE', 'DEVOTION', 'EAGERNESS', 'ENCHANTMENT', 'ENTHUSIASM', 'FANCY', 'FELLOW FEELING', 'FERVOUR', 'FONDNESS', 'HEART', 'HUNGER', 'INFATUATION', 'LIKING', 'LONGING', 'LOVE', 'LUST', 'PASSION', 'RAPTURE', 'SYMPATHY', 'TENDERNESS', 'THIRST', 'WISH', 'YEARNING'],
+            adverbs = ['AFFECTIONATELY', 'ANXIOUSLY', 'ARDENTLY', 'AVIDLY', 'BEAUTIFULLY', 'BREATHLESSLY', 'BURNINGLY', 'COVETOUSLY', 'CURIOUSLY', 'DEVOTEDLY', 'EAGERLY', 'FERVENTLY', 'FONDLY', 'IMPATIENTLY', 'KEENLY', 'LOVINGLY', 'PASSIONATELY', 'SEDUCTIVELY', 'TENDERLY', 'WINNINGLY', 'WISTFULLY'],
+            verbs = ['ADORES', 'ATTRACTS', 'CARES FOR', 'CHERISHES', 'CLINGS TO', 'DESIRES', 'HOLDS DEAR', 'HOPES FOR', 'HUNGERS FOR', 'IS WEDDED TO', 'LIKES', 'LONGS FOR', 'LOVES', 'LUSTS AFTER', 'PANTS FOR', 'PINES FOR', 'PRIZES', 'SIGHS FOR', 'TEMPTS', 'THIRSTS FOR', 'TREASURES', 'WANTS', 'WISHES', 'WOOS', 'YEARNS FOR'];
+
+        function rand_range(maximum) {
+            return Math.floor(Math.random() * (maximum + 1));
+        }
+
+        function choose(array) {
+            return array[rand_range(array.length - 1)];
+        }
+
+        function maybe(words) {
+            if (Math.random() > 0.5) {
+                return ' ' + choose(words);
+            }
+            return '';
+        }
+
+        function longer() {
+            return ' MY' + maybe(adjectives) + ' ' + choose(nouns) + maybe(adverbs) + ' ' + choose(verbs) + ' YOUR' + maybe(adjectives) + ' ' + choose(nouns) + '.';
+        }
+
+        function shorter() {
+            return ' ' + choose(adjectives) + ' ' + choose(nouns) + '.';
+        }
+
+        function letter() {
+            var i, type, you_are = false,
+                text = '';
+            text = text + choose(first) + ' ' + choose(second) + '<br /><br />';
+
+            for (i = 0; i < 5; i = i + 1) {
+                type = choose(['longer', 'shorter']);
+                if (type === 'longer') {
+                    text = text + longer();
+                    you_are = false;
+                } else {
+                    if (you_are) {
+                        text = text.slice(0, -1) + ': MY' + shorter();
+                        you_are = false;
+                    } else {
+                        text = text + ' YOU ARE MY' + shorter();
+                        you_are = true;
+                    }
+                }
+            }
+            text = text + '<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YOURS ' + choose(adverbs) + '<br /><br />' + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M.U.C.';
+            return text;
+        }
+
+        function litany() {
+            var last, main = document.getElementById('main');
+            if (4 > t) {
+                t += 1;
+            } else {
+                main.removeChild(document.getElementById('main').firstChild);
+            }
+            last = document.createElement('div');
+            last.innerHTML = letter();
+            main.appendChild(last);
+        }
+
+        function produce_litany() {
+            litany();
+            setInterval(litany, 5000);
+        }
+    </script>
+    <title>Love Letter Generator</title>
+</head>
+
+<body onload="produce_litany();">
+    <div id="main"></div>
+</body>
+
+</html>

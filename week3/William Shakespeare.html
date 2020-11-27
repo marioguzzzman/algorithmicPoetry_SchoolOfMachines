@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!-- 
+In stark contrast to Hemingway’s hands-off approach, William Shakespeare probes the human psyche to the fullest. In wondrously expressive verse, he maps the dark crevices of his protagonists and lays bare their souls. Shakespeare’s commentary is universal because he recognizes in his subjects those archetypal traits that transcend geography and time. Shakespeare’s plays and sonnets make heavy use of iambic pentameter, which was the popular lyrical form of his time. A foot is a metrical unit consisting of a stressed syllable and one or more unstressed syllables, and an iamb is a twosyllable foot with the second syllable stressed (for example, “reVIEW” or “the CAT”). An iambic pentameter is 5 iambs in a row—10 syllables with stresses on the even-numbered syllables.
+
+Here’s a simple couplet in iambic pentameter taken from Shakespeare’s “Sonnet 18.” Stressed syllables are capitalized: 
+
+So LONG as MEN can BREATHE or EYES can SEE, So LONG lives THIS, and THIS gives LIFE to THEE. 
+
+Shakespeare often adds dramatic emphasis by deviating from strict iambic pentameter—he might add an extra syllable or use an alternate stress. In the famous opening line of Richard III, the stress of the first foot is reversed (a trochee), highlighting the urgency of “now.” 
+
+NOW is the WINter OF our DISconTENT
+
+Shakespeare’s solution comes in the form of a two-act comedy that draws heavily on JavaScript’s unusual mannerisms for levity. We’re introduced to the cast of players before settling in for the main event. In keeping with the traditions of Elizabethan comedy, the unsettling opening act (in which an incomplete result is prematurely presented) is happily resolved by the final act, affording us much comfort and cheer. The Bard gets a little wordy, but we wouldn’t have it any other way. Several clever devices are employed—for example, the use of Math.max ensures that theResult does not suffer the indignity of being addressed by a negative index. Notice that although Shakespeare’s comments are in iambic pentameter, he’s using weak endings (that is, adding an extra unstressed syllable). Shakespeare frequently used weak endings to denote enquiry or uncertainty (the Elizabethan equivalent of upspeak). We can only assume he found JavaScript as vexing as the rest of us do.
+
+Croll, Angus. If Hemingway Wrote JavaScript (Page 18). No Starch Press. Kindle Edition.  -->
+    <style type="text/css">
+        /* <![CDATA[ */
+        
+        body {
+            background: #000;
+            color: #ccc;
+            margin: 0 0 0 18pt;
+            font-family: Optima, sans-serif;
+            font-size: 16pt;
+        }
+        
+        a {
+            color: #117;
+            text-decoration: none;
+        }
+        
+        #main {
+            padding-top: 18px;
+            width: 70%;
+            margin-left: 15%;
+        }
+        
+        #main div {
+            font-weight: bold;
+            padding-bottom: 9px;
+        }
+        /* ]]> */
+    </style>
+    <script type="text/javascript">
+        function theSeriesOfFIBONACCI(theSize) {
+            //a CALCKULATION in two acts
+            //employ'ng the humourous logick of JAVA-SCRIPTE
+
+            //Dramatis Personae
+            var theResult; //an ARRAY to contain THE NUMBERS
+            var theCounter; //a NUMBER, serv'nt to the FOR LOOP
+
+            //ACT I: in which a ZERO is added for INITIATION
+
+            //[ENTER: theResult]
+
+            //Upon the noble list bestow a zero
+            var theResult = [0];
+
+            //ACT II: a LOOP in which the final TWO NUMBERS are QUEREED and SUMM'D
+
+            //[ENTER: theCounter]
+            //Commence at one and venture o'er the numbers
+            for (theCounter = 1; theCounter < theSize; theCounter++) { //By divination set adjoining members
+                theResult[theCounter] = (theResult[theCounter - 1] || 1) + theResult[Math.max(0, theCounter - 2)];
+            } //'Tisdone, and here 's the answer return theResult; //[Exeunt] } function show_text() { /* litany(); */ var
+            theSize = 2;
+            theSeriesOfFIBONACCI(theSize);
+            setInterval(console.log(theSeriesOfFIBONACCI(theSize)), 5000);
+            document.getElementById("main").innerHTML = theSeriesOfFIBONACCI(theSize);
+        }
+    </script>
+    <title>William Shakespeare</title>
+</head>
+
+<body onload="show_text();">
+    <div id="main"></div>
+</body>
+
+
+</html>
