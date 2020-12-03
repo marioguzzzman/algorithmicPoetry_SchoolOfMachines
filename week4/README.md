@@ -21,7 +21,7 @@
    - You can also try out *LSTM_Text* or *LSTM_Text_Stateful*.
    - Remember to copy the *models* folder from *LSTM_Interactive* into *LSTM_Text* or *LSTM_Text_Stateful*.
 3. Modify ```sketch.js``` to change the behavior of your text.
-4. Modify ```sketch.js``` to change the visual aspect of your text.
+4. Modify ```index.html``` to change the visual aspect of your text.
 5. Remember to save your changes.
 6. Follow steps 1-7 from the *Testing* section.
 7. To see your changes, just refresh your browser.
