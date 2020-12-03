@@ -13,6 +13,7 @@
 5. Your Terminal will prompt this address ```http://127.0.0.1:8080```, copy and paste on the search bar of your favorite browser.
 6. Your browser will show you an interactive page to play with your lstm model!
 7. Test your model.
+8. To stop http-server press ```ctrl + c```.
 
 ### Modify your code
 1. Open your code editor.
