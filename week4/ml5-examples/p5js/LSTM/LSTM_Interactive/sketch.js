@@ -52,7 +52,7 @@ function generate() {
         // Grab the original text
         let original = textInput.value();
         // Make it to lower case
-        let txt = original.toLowerCase();
+        let txt = original.toLowerCase(); //You can add new text here
 
         // Check if there's something
         if (txt.length > 0) {
